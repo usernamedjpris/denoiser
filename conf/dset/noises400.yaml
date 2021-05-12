@@ -1,0 +1,8 @@
+dset:
+  train: egs/noises400/tr
+  valid:
+  test: egs/noises400/tt
+  noisy_json:
+  noisy_dir:
+  matching:
+eval_every: 2
