@@ -4,5 +4,5 @@ dset:
   test: egs/noises400/tt
   noisy_json:
   noisy_dir:
-  matching:
+  matching:sort
 eval_every: 2
