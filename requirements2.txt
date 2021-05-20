@@ -1,0 +1,8 @@
+hydra_core==0.11.3
+hydra_colorlog==0.1.4
+numpy==1.20.0
+pystoi==0.3.3
+git+https://github.com/ludlows/python-pesq/archive/master.zip
+six
+sounddevice==0.4.0
+
