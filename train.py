@@ -46,6 +46,9 @@ def run(args):
         length = model.valid_length(length)
     kwargs = {"matching": args.dset.matching, "sample_rate": args.sample_rate}
     # Building datasets and loaders
+    logger.info(args.num_workers) 
+    logger.info(kwargs) 
+    logger.info(args) 
     tr_dataset = NoisyCleanSet(
         args.dset.train, length=length, stride=stride, pad=args.pad, **kwargs)
     tr_loader = distrib.loader(
