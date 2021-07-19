@@ -33,7 +33,7 @@ def init(args):
     torch.cuda.set_device(rank)
     torch.distributed.init_process_group(
         backend=args.ddp_backend,
-        init_method='file://' + os.path.abspath(args.rendezvous_file),
+        init_method='env://',
         world_size=world_size,
         rank=rank)
     logger.debug("Distributed rendezvous went well, rank %d/%d", rank, world_size)
