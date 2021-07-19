@@ -10,6 +10,7 @@ import logging
 import os
 
 import hydra
+import idr_torch
 
 from denoiser.executor import start_ddp_workers
 
@@ -46,8 +47,6 @@ def run(args):
         length = model.valid_length(length)
     kwargs = {"matching": args.dset.matching, "sample_rate": args.sample_rate}
     # Building datasets and loaders
-    logger.info(args.num_workers) 
-    logger.info(kwargs) 
     logger.info(args) 
     tr_dataset = NoisyCleanSet(
         args.dset.train, length=length, stride=stride, pad=args.pad, **kwargs)
@@ -101,8 +100,12 @@ def _main(args):
         run(args)
 
 
+
 @hydra.main(config_path="conf/config.yaml")
 def main(args):
+    ### To add for Jean Zay System
+    args.rank=idr_torch.rank
+    args.world_size=idr_torch.size
     try:
         _main(args)
     except Exception:
